@@ -1,0 +1,16 @@
+name: mongodb  # This is your Project Name
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: famous-masons  # This is the actual Container Instance Name
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  mongodb_data:
